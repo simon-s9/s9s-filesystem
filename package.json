@@ -18,7 +18,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com:simon-s9/s9s-filesystem.git"
+    "url": "git://github.com/simon-s9/s9s-filesystem.git"
   },
   "dependencies": {
     "mkdirp": "^0.5.1"
