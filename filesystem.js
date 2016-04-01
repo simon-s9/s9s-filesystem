@@ -115,6 +115,20 @@ Filesystem.prototype.deleteDirectory = function (path) {
 };
 
 /**
+ * Delete a file
+ * @param {string} path Path to file
+ * @returns {boolean}
+ */
+Filesystem.prototype.deleteFile = function (path) {
+    try {
+        fs.unlinkSync(path);
+        return true;
+    } catch (error) {
+        return false;
+    }
+};
+
+/**
  * Renames a file or directory
  * @param {string} oldName Original name
  * @param {string} newName New name
@@ -183,6 +197,43 @@ Filesystem.prototype.readJson = function (path) {
 Filesystem.prototype.writeJson = function (path, data) {
     try {
         return this.writeFile(path, JSON.stringify(data));
+    } catch (error) {
+        return false;
+    }
+};
+
+/**
+ * Append data to the end of file
+ * @param {string} path Path to file
+ * @param {string} data Data to append
+ * @param {object|string} [options] Write options, default "utf8"
+ * @returns {boolean}
+ */
+Filesystem.prototype.appendFile = function (path, data, options) {
+    options = options || 'utf8';
+    try {
+        fs.appendFileSync(path, data, options);
+        return true;
+    } catch (error) {
+        return false;
+    }
+};
+
+/**
+ * Prepend data to the end of file
+ * @param {string} path Path to file
+ * @param {string} data Data to prepend
+ * @param {object|string} [options] Read/Write options, default "utf8"
+ * @returns {boolean}
+ */
+Filesystem.prototype.prependFile = function (path, data, options) {
+    options = options || 'utf8';
+    try {
+        var contents = this.readFile(path, options);
+        if (contents === false) {
+            return false;
+        }
+        return this.writeFile(path, data + contents, options);
     } catch (error) {
         return false;
     }

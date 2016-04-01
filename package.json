@@ -1,6 +1,6 @@
 {
   "name": "s9s-filesystem",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "File system module",
   "main": "filesystem.js",
   "author": "Severalnines AB",

@@ -56,6 +56,13 @@ describe('Filesystem', function () {
         assert.strictEqual(filesystem.directoryExists(dirName), false);
     });
 
+    it('Filesystem.deleteFile', function () {
+        assert.strictEqual(typeof(filesystem.deleteFile), 'function');
+        assert.strictEqual(filesystem.writeFile(fileName, 'a'), true);
+        assert.strictEqual(filesystem.deleteFile(fileName), true);
+        assert.strictEqual(filesystem.fileExists(fileName), false);
+    });
+
     it('Filesystem.rename', function () {
         assert.strictEqual(typeof(filesystem.rename), 'function');
         filesystem.createDirectory(dirName);
@@ -88,6 +95,24 @@ describe('Filesystem', function () {
         assert.strictEqual(typeof(filesystem.writeJson), 'function');
         assert.strictEqual(filesystem.writeJson(fileName, {propName: 42}), true);
         assert.strictEqual(filesystem.readFile(fileName), json);
+    });
+
+    it('Filesystem.appendFile', function () {
+        assert.strictEqual(typeof(filesystem.appendFile), 'function');
+        filesystem.deleteFile(fileName);
+        assert.strictEqual(filesystem.writeFile(fileName, 'a'), true);
+        assert.strictEqual(filesystem.readFile(fileName), 'a');
+        assert.strictEqual(filesystem.appendFile(fileName, 'b'), true);
+        assert.strictEqual(filesystem.readFile(fileName), 'ab');
+    });
+
+    it('Filesystem.prependFile', function () {
+        assert.strictEqual(typeof(filesystem.prependFile), 'function');
+        filesystem.deleteFile(fileName);
+        assert.strictEqual(filesystem.writeFile(fileName, 'a'), true);
+        assert.strictEqual(filesystem.readFile(fileName), 'a');
+        assert.strictEqual(filesystem.prependFile(fileName, 'b'), true);
+        assert.strictEqual(filesystem.readFile(fileName), 'ba');
     });
 
 });

@@ -159,6 +159,34 @@ Converts data object to json string and writes to path
 
 **Returns**: `boolean`
 
+### Filesystem.Filesystem.appendFile(path, data, options) 
+
+Append data to the end of file
+
+
+**Parameters**
+
+**path**: `string`, Path to file
+**data**: `string`, Data to append
+**options**: `object | string`, Write options, default "utf8"
+
+
+**Returns**: `boolean`
+
+### Filesystem.Filesystem.prependFile(path, data, options) 
+
+Prepend data to the end of file
+
+
+**Parameters**
+
+**path**: `string`, Path to file
+**data**: `string`, Data to prepend
+**options**: `object | string`, Read/Write options, default "utf8"
+
+
+**Returns**: `boolean`
+
 
 * * *
 
