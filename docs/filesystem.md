@@ -1,6 +1,6 @@
 # Filesystem
 
-File system module used across Severalnines NodeJs projects
+File system module
 
 
 
@@ -146,11 +146,28 @@ Reads JSON files and returns a parsed json object
 
 **Returns**: `boolean | Object`
 
+### Filesystem.Filesystem.writeJson(path, data) 
+
+Converts data object to json string and writes to path
+
+
+**Parameters**
+
+**path**: `string`, Path to json file
+**data**: `Object`, Data to write
+
+
+**Returns**: `boolean`
+
 
 * * *
 
 **Author:** Severalnines AB
+
 **License:** MIT
+
+
+
 
 
 *© 2016 Severalnines AB*

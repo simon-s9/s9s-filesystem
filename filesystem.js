@@ -4,6 +4,7 @@
  * @license MIT
  * @copyright 2016 Severalnines AB
  */
+
 /**
  * @module Filesystem
  * @description File system module
@@ -168,6 +169,20 @@ Filesystem.prototype.writeFile = function (path, data, options) {
 Filesystem.prototype.readJson = function (path) {
     try {
         return JSON.parse(this.readFile(path));
+    } catch (error) {
+        return false;
+    }
+};
+
+/**
+ * Converts data object to json string and writes to path
+ * @param {string} path Path to json file
+ * @param {Object} data Data to write
+ * @returns {boolean}
+ */
+Filesystem.prototype.writeJson = function (path, data) {
+    try {
+        return this.writeFile(path, JSON.stringify(data));
     } catch (error) {
         return false;
     }
