@@ -1,0 +1,22 @@
+{
+  "name": "s9s-filesystem",
+  "version": "1.0.2",
+  "description": "File system module",
+  "main": "filesystem.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "severalnines",
+    "s9s",
+    "fs",
+    "filesystem",
+    "file",
+    "fdir"
+  ],
+  "author": "Severalnines AB",
+  "license": "MIT",
+  "dependencies": {
+    "mkdirp": "^0.5.1"
+  }
+}
