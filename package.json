@@ -3,6 +3,8 @@
   "version": "1.0.3",
   "description": "File system module",
   "main": "filesystem.js",
+  "author": "Severalnines AB",
+  "license": "MIT",
   "scripts": {
     "test": "node_modules/.bin/mocha"
   },
@@ -14,8 +16,10 @@
     "file",
     "fdir"
   ],
-  "author": "Severalnines AB",
-  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com:simon-s9/s9s-filesystem.git"
+  },
   "dependencies": {
     "mkdirp": "^0.5.1"
   },
