@@ -238,3 +238,19 @@ Filesystem.prototype.prependFile = function (path, data, options) {
         return false;
     }
 };
+
+/**
+ * Returns list of items in directory
+ * @param path
+ * @returns {boolean}
+ */
+Filesystem.prototype.listDirectory = function (path) {
+    if (!this.directoryExists(path)) {
+        return false;
+    }
+    try {
+        return fs.readdirSync(path);
+    } catch (error) {
+        return false;
+    }
+};

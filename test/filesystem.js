@@ -1,4 +1,5 @@
 const filesystem = require(__dirname + '/../filesystem');
+const path = require('path');
 const assert = require('assert');
 
 describe('Filesystem', function () {
@@ -113,6 +114,16 @@ describe('Filesystem', function () {
         assert.strictEqual(filesystem.readFile(fileName), 'a');
         assert.strictEqual(filesystem.prependFile(fileName, 'b'), true);
         assert.strictEqual(filesystem.readFile(fileName), 'ba');
+    });
+
+    it('Filesystem.listDirectory', function () {
+        assert.strictEqual(typeof(filesystem.listDirectory), 'function');
+        var directoryContent;
+        directoryContent = filesystem.listDirectory(__dirname);
+        assert.notStrictEqual(directoryContent, false);
+        assert.notStrictEqual(directoryContent.indexOf(path.basename(__filename)), -1);
+        directoryContent = filesystem.listDirectory('/tmp/s9s/' + Math.random() * 1e6);
+        assert.strictEqual(directoryContent, false);
     });
 
 });

@@ -94,6 +94,18 @@ Deletes a directory
 
 **Returns**: `boolean`
 
+### Filesystem.Filesystem.deleteFile(path) 
+
+Delete a file
+
+
+**Parameters**
+
+**path**: `string`, Path to file
+
+
+**Returns**: `boolean`
+
 ### Filesystem.Filesystem.rename(oldName, newName) 
 
 Renames a file or directory
@@ -183,6 +195,18 @@ Prepend data to the end of file
 **path**: `string`, Path to file
 **data**: `string`, Data to prepend
 **options**: `object | string`, Read/Write options, default "utf8"
+
+
+**Returns**: `boolean`
+
+### Filesystem.Filesystem.listDirectory(path) 
+
+Returns list of items in directory
+
+
+**Parameters**
+
+**path**: , Returns list of items in directory
 
 
 **Returns**: `boolean`
